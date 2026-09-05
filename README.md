@@ -6,7 +6,7 @@ A full-stack prototype for managing and reviewing Forest Rights Act (FRA) land c
 
 ## Overview
 
-FRA Guardian is a prototype decision-support application designed around Forest Rights Act claim data.
+Vanrakshak is a prototype decision-support application designed around Forest Rights Act claim data.
 
 The repository contains:
 
@@ -27,7 +27,7 @@ The project is structured as an application prototype rather than a production-r
 
 ## Project Purpose
 
-FRA Guardian is a technical prototype exploring how structured claim data, backend APIs, geospatial-style interfaces, and data visualisation can be combined into a single system for reviewing Forest Rights Act-related claims.
+Vanrakshak is a technical prototype exploring how structured claim data, backend APIs, geospatial-style interfaces, and data visualisation can be combined into a single system for reviewing Forest Rights Act-related claims.
 
 The current repository should be considered a prototype or demonstration project.
 
