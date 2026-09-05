@@ -2,8 +2,6 @@
 
 A full-stack prototype for managing and reviewing Forest Rights Act (FRA) land claims. The project combines a FastAPI backend, MongoDB integration, structured claim models, sample claim data, and a browser-based frontend.
 
-> This README describes the implementation available in the repository and avoids claims about functionality that cannot be confirmed from the project structure and code.
-
 ---
 
 ## Overview
@@ -41,26 +39,15 @@ It should not be represented as:
 * A direct live connection to official satellite or government databases unless such integrations are independently configured and verified.
 
 ---
+## Image Reference
 
-## Current Limitations
+<img width="1459" height="833" alt="Screenshot 2026-09-05 at 7 48 39 AM" src="https://github.com/user-attachments/assets/64fc92a2-8306-41dc-a4c0-c3d8feeea33e" />
 
-The repository currently contains prototype-level application code and sample data.
+<img width="1458" height="835" alt="Screenshot 2026-09-05 at 7 49 56 AM" src="https://github.com/user-attachments/assets/60a99915-51ea-46ff-b3e7-edfe5bcd190c" />
 
-Before production use, the following areas would require additional work:
-
-* Authentication and role-based access control.
-* Secure credential management.
-* Input validation and security testing.
-* Production database configuration.
-* API documentation.
-* Automated tests.
-* Logging and monitoring.
-* Error handling.
-* Deployment configuration for backend and frontend services.
-* Verification of all external data sources.
-* Legal and administrative validation for real FRA workflows.
-
----
+<img width="1459" height="832" alt="Screenshot 2026-09-05 at 7 50 38 AM" src="https://github.com/user-attachments/assets/626a7677-cd73-4a16-840a-c9a9182025e1" />
+## Ai Discussion
+<img width="1453" height="814" alt="Screenshot 2026-09-05 at 7 52 01 AM" src="https://github.com/user-attachments/assets/a7c0133b-3b51-4615-9802-b8f368baffdf" />
 
 
 ## Repository Structure
@@ -392,6 +379,25 @@ python3 build_unified_index.py
 ```
 
 This regenerates the unified frontend output according to the build logic implemented in the script.
+
+---
+## Current Limitations
+
+The repository currently contains prototype-level application code and sample data.
+
+Before production use, the following areas would require additional work:
+
+* Authentication and role-based access control.
+* Secure credential management.
+* Input validation and security testing.
+* Production database configuration.
+* API documentation.
+* Automated tests.
+* Logging and monitoring.
+* Error handling.
+* Deployment configuration for backend and frontend services.
+* Verification of all external data sources.
+* Legal and administrative validation for real FRA workflows.
 
 ---
 
