@@ -39,6 +39,62 @@ It should not be represented as:
 * A direct live connection to official satellite or government databases unless such integrations are independently configured and verified.
 
 ---
+
+# 🛰️ What Makes Us Different
+
+## We Check the History of the Land
+
+Most officers visit a piece of land once and make a decision.
+
+We check the land's history using **60 satellite images from the last 5 years**.
+
+## What We Check
+
+| What We See       | What It Means                                  |
+| ----------------- | ---------------------------------------------- |
+| 🟢 → 🟤 → 🟢 → 🟤 | Crops are growing and being harvested          |
+| 🟢 Green all year | The land may be forest or permanent vegetation |
+
+## Why It Helps
+
+* 🌾 Shows if the land has been used for farming over time.
+* 🛰️ Uses 5 years of satellite data as evidence.
+* ⚖️ Helps officers make better decisions.
+* 📊 The same data is checked for every applicant.
+
+## Example
+
+### 👨‍🌾 Person 1
+
+A tribal farmer says:
+
+> "I grow crops on this land."
+
+Satellite images show crops growing and being harvested regularly for the last 5 years.
+
+**Result: ✅ Evidence supports the claim.**
+
+---
+
+### 🌲 Person 2
+
+Another person says:
+
+> "This is my farmland."
+
+But satellite images show dense green vegetation for 5 years with no clear harvest cycles.
+
+**Result: ⚠️ The claim needs further verification.**
+
+---
+
+# 🔍 We Don't Just Look at the Land Once.
+
+## We Check 5 Years of Satellite Evidence.
+<img width="73-" height="418.5" alt="Screenshot 2026-09-05 at 7 59 27 AM" src="https://github.com/user-attachments/assets/d7472fd7-4375-4a92-9831-9525f189ae4b" />
+<img width="728.5" height="411" alt="Screenshot 2026-09-05 at 7 59 34 AM" src="https://github.com/user-attachments/assets/24855623-9bba-4658-9a18-57ff9902bd09" />
+
+--
 ## Image Reference
 
 DECISION SUPPORT
