@@ -1508,6 +1508,72 @@ html_content = r"""<!DOCTYPE html>
       border-radius: 4px !important;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
     }
+    /* Shared command-center skin across every workspace tab. */
+    :root {
+      --surf: #ffffff;
+      --surf2: #f4f7f5;
+      --border: #d8e1dc;
+      --green: #0d8a68;
+      --amber: #d88a14;
+      --red: #e45562;
+      --blue: #3d7db8;
+      --purple: #8c63b8;
+      --text: #14231d;
+      --text2: #53665d;
+      --muted: #84938c;
+    }
+
+    body { background: #f4f7f5; color: var(--text); font-family: 'Inter', sans-serif; }
+    header { background: #063d2f; border-bottom: 0; padding: 12px 24px; min-height: 64px; box-shadow: 0 3px 16px rgba(5,45,34,.16); }
+    .brand, .brand-title, .brand-title span { color: #ffffff; }
+    .brand-icon { background: #0c7359; border-color: rgba(255,255,255,.24); }
+    .brand-sub { color: #a7c9bc; }
+    .db-status-pill, .mp-tag, .header-search-input, .search-month-select, .tab-btn { border-color: rgba(255,255,255,.24); background: rgba(255,255,255,.09); color: #ffffff; }
+    .db-dot { background: #74e2b9; }
+    .header-search-input::placeholder { color: #a7c9bc; }
+    .tab-btn.active { background: #ffffff; border-color: #ffffff; color: #063d2f; }
+    .tab-btn:hover { background: rgba(255,255,255,.17); color: #ffffff; }
+    .ps-banner, .bhuvan-toolbar, .kpi-row, .timeline-bar { background: #ffffff; border-color: var(--border); }
+    .ps-badge { background: #e6f4ed; border-color: #c6e6d7; color: #08704f; }
+    .ps-summary, .ps-stats-inline { color: var(--text2); }
+    .kpi-card, .anomaly-card, .dossier-card, .district-table-wrap, .claim-item-row, .bv-card, .scan-form-pane, .debate-side, .debate-main, .why-denied-box { border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 2px 10px rgba(22,55,43,.04); }
+    .kpi-card { border-top: 3px solid var(--green); }
+    .kpi-card.amber { border-top-color: var(--amber); }
+    .kpi-card.red { border-top-color: var(--red); }
+    .kpi-card.blue { border-top-color: var(--blue); }
+    .kpi-card.purple { border-top-color: var(--purple); }
+    .kpi-val { color: var(--text); }
+    .kpi-label, .section-title { color: var(--text2); }
+    .dash-left, .bhuvan-map-pane { background: #f4f7f5; border-color: var(--border); }
+    .dash-right, .bhuvan-side-pane { background: #edf3ef; border-color: var(--border); }
+    .anomaly-card { border-left-width: 4px; }
+    .anomaly-card.bias { border-left-color: var(--red); }
+    .anomaly-card.sat { border-left-color: var(--amber); }
+    .anomaly-card.time { border-left-color: var(--blue); }
+    .ac-action-btn, .btn-submit { background: #0b6f54; border-color: #0b6f54; border-radius: 6px; }
+    .ac-action-btn:hover, .btn-submit:hover { background: #07543f; border-color: #07543f; }
+    .filter-pill { border-color: var(--border); color: var(--text2); border-radius: 999px; }
+    .filter-pill.active { background: #0b6f54; border-color: #0b6f54; }
+    table.data-table th { background: #e9f1ec; color: var(--text2); }
+    table.data-table td { border-color: #e3ebe6; color: var(--text); }
+    .claim-item-row.selected { border-color: var(--green); background: #e9f7f0; }
+    .one-ha-badge { background: #fff5dc; border-color: #f0ce7f; color: #9a6000; }
+    .scan-workspace, .debate-workspace { background: #f4f7f5; }
+    .form-control, .claim-dropdown { border-color: var(--border); border-radius: 6px; background: #ffffff; color: var(--text); }
+    .agent-card { border-color: var(--border); background: #ffffff; border-radius: 7px; }
+    .agent-card.active { border-color: var(--green); background: #e9f7f0; }
+    @media (max-width: 900px) {
+      header { flex-wrap: wrap; padding: 12px 16px; }
+      .header-search-wrap { order: 3; width: 100%; margin-left: 0; }
+      .header-search-input-box { width: 100%; }
+      .tab-nav { margin-left: 0; width: 100%; overflow-x: auto; }
+      .tab-btn { flex: 1 0 auto; justify-content: center; }
+      .kpi-row { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px 16px; }
+      .dashboard-layout, .bhuvan-workspace, .scan-workspace, .debate-workspace { display: flex; flex-direction: column; height: auto; overflow: visible; }
+      .dash-left, .dash-right, .bhuvan-map-pane, .bhuvan-side-pane, .scan-map-pane, .scan-form-pane, .debate-side, .debate-main { width: 100%; min-height: 420px; border: 0; }
+      .anomaly-grid { grid-template-columns: 1fr; }
+      #bhuvanMap, #scanMap { height: 54vh; min-height: 340px; flex: none; }
+    }
   </style>
 </head>
 <body>
@@ -2254,7 +2320,7 @@ html_content = r"""<!DOCTYPE html>
     // ── Initial Setup on Page Load ──
     window.addEventListener('DOMContentLoaded', async () => {
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/claims');
+        const res = await fetch('/api/claims');
         if (res.ok) {
           const data = await res.json();
           if (data.claims && data.claims.length > 0) {
@@ -3285,7 +3351,7 @@ html_content = r"""<!DOCTYPE html>
       const lng = scanCoords[1];
 
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/analyze-area', {
+        const res = await fetch('/api/analyze-area', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ lat: lat, lng: lng, area_ha: 1.0, radius_meters: 56.42 })
@@ -3348,7 +3414,7 @@ html_content = r"""<!DOCTYPE html>
       };
 
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/claims', {
+        const res = await fetch('/api/claims', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
