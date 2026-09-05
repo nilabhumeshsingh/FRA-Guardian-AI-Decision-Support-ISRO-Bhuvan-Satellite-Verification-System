@@ -41,10 +41,14 @@ It should not be represented as:
 ---
 ## Image Reference
 
+DECISION SUPPORT
 <img width="1459" height="833" alt="Screenshot 2026-09-05 at 7 48 39 AM" src="https://github.com/user-attachments/assets/64fc92a2-8306-41dc-a4c0-c3d8feeea33e" />
+
+ISRO BHUVAN VERIFICATION
 
 <img width="1458" height="835" alt="Screenshot 2026-09-05 at 7 49 56 AM" src="https://github.com/user-attachments/assets/60a99915-51ea-46ff-b3e7-edfe5bcd190c" />
 
+HECTARE SURVEY
 <img width="1459" height="832" alt="Screenshot 2026-09-05 at 7 50 38 AM" src="https://github.com/user-attachments/assets/626a7677-cd73-4a16-840a-c9a9182025e1" />
 ## Ai Discussion
 <img width="1453" height="814" alt="Screenshot 2026-09-05 at 7 52 01 AM" src="https://github.com/user-attachments/assets/a7c0133b-3b51-4615-9802-b8f368baffdf" />
