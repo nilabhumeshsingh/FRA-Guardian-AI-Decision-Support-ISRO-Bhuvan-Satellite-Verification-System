@@ -91,7 +91,7 @@ But satellite images show dense green vegetation for 5 years with no clear harve
 ## 🔍 We Don't Just Look at the Land Once.
 
 ## We Check 5 Years of Satellite Evidence.
-<img width="73-" height="418.5" alt="Screenshot 2026-09-05 at 7 59 27 AM" src="https://github.com/user-attachments/assets/d7472fd7-4375-4a92-9831-9525f189ae4b" />
+<img width="730" height="418.5" alt="Screenshot 2026-09-05 at 7 59 27 AM" src="https://github.com/user-attachments/assets/d7472fd7-4375-4a92-9831-9525f189ae4b" />
 <img width="728.5" height="411" alt="Screenshot 2026-09-05 at 7 59 34 AM" src="https://github.com/user-attachments/assets/24855623-9bba-4658-9a18-57ff9902bd09" />
 
 --
