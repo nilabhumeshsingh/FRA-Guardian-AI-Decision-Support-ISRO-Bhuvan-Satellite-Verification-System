@@ -40,7 +40,7 @@ It should not be represented as:
 
 ---
 
-# 🛰️ What Makes Us Different
+##  What Makes Us Different
 
 ## We Check the History of the Land
 
@@ -48,23 +48,23 @@ Most officers visit a piece of land once and make a decision.
 
 We check the land's history using **60 satellite images from the last 5 years**.
 
-## What We Check
+### What We Check
 
 | What We See       | What It Means                                  |
 | ----------------- | ---------------------------------------------- |
 | 🟢 → 🟤 → 🟢 → 🟤 | Crops are growing and being harvested          |
 | 🟢 Green all year | The land may be forest or permanent vegetation |
 
-## Why It Helps
+### Why It Helps
 
-* 🌾 Shows if the land has been used for farming over time.
-* 🛰️ Uses 5 years of satellite data as evidence.
-* ⚖️ Helps officers make better decisions.
-* 📊 The same data is checked for every applicant.
+*  Shows if the land has been used for farming over time.
+*  Uses 5 years of satellite data as evidence.
+*  Helps officers make better decisions.
+*  The same data is checked for every applicant.
 
-## Example
+### Example
 
-### 👨‍🌾 Person 1
+####  Person 1
 
 A tribal farmer says:
 
@@ -72,11 +72,11 @@ A tribal farmer says:
 
 Satellite images show crops growing and being harvested regularly for the last 5 years.
 
-**Result: ✅ Evidence supports the claim.**
+**Result:  Evidence supports the claim.**
 
 ---
 
-### 🌲 Person 2
+####  Person 2
 
 Another person says:
 
@@ -84,11 +84,11 @@ Another person says:
 
 But satellite images show dense green vegetation for 5 years with no clear harvest cycles.
 
-**Result: ⚠️ The claim needs further verification.**
+**Result:  The claim needs further verification.**
 
 ---
 
-# 🔍 We Don't Just Look at the Land Once.
+## 🔍 We Don't Just Look at the Land Once.
 
 ## We Check 5 Years of Satellite Evidence.
 <img width="73-" height="418.5" alt="Screenshot 2026-09-05 at 7 59 27 AM" src="https://github.com/user-attachments/assets/d7472fd7-4375-4a92-9831-9525f189ae4b" />
