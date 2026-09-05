@@ -25,6 +25,44 @@ The project is structured as an application prototype rather than a production-r
 
 ---
 
+
+
+## Project Purpose
+
+FRA Guardian is a technical prototype exploring how structured claim data, backend APIs, geospatial-style interfaces, and data visualisation can be combined into a single system for reviewing Forest Rights Act-related claims.
+
+The current repository should be considered a prototype or demonstration project.
+
+It should not be represented as:
+
+* An official Government of India system.
+* A production FRA claim-processing platform.
+* A replacement for statutory or legal verification.
+* A direct live connection to official satellite or government databases unless such integrations are independently configured and verified.
+
+---
+
+## Current Limitations
+
+The repository currently contains prototype-level application code and sample data.
+
+Before production use, the following areas would require additional work:
+
+* Authentication and role-based access control.
+* Secure credential management.
+* Input validation and security testing.
+* Production database configuration.
+* API documentation.
+* Automated tests.
+* Logging and monitoring.
+* Error handling.
+* Deployment configuration for backend and frontend services.
+* Verification of all external data sources.
+* Legal and administrative validation for real FRA workflows.
+
+---
+
+
 ## Repository Structure
 
 ```text
@@ -58,6 +96,63 @@ FRA-Guardian-AI-Decision-Support-ISRO-Bhuvan-Satellite-Verification-System/
 ├── farmland.jpg
 └── forest.jpg
 ```
+
+---
+
+## Development Notes
+
+The repository currently contains multiple frontend-related components:
+
+1. A source frontend under `frontend/`.
+2. A generated standalone `index.html`.
+3. Build scripts such as `build_unified_index.py`.
+4. Additional frontend generation logic in `generate_frontend.py`.
+
+When modifying the project, it is important to identify which frontend artifact is actually used by the deployment.
+
+A recommended development workflow is:
+
+```text
+Modify source code
+      ↓
+Run backend locally
+      ↓
+Run/test frontend locally
+      ↓
+Update sample data if required
+      ↓
+Generate standalone build if required
+      ↓
+Test final deployment artifact
+```
+
+---
+
+## Contributing
+
+Contributions should focus on improving the actual application rather than adding unsupported claims.
+
+Useful areas for contribution include:
+
+* Backend API improvements.
+* Database reliability.
+* Frontend usability.
+* Claim-data validation.
+* Automated testing.
+* Documentation.
+* Deployment automation.
+* Security improvements.
+
+---
+
+## Disclaimer
+
+This repository is a software prototype created for experimentation and demonstration.
+
+Any real-world implementation involving Forest Rights Act claims, land records, satellite imagery, government data, or tribal land rights must be independently validated with authorised data sources and the appropriate legal and administrative authorities.
+
+The application should not be used as the sole basis for approving, rejecting, or modifying an official claim.
+
 
 ---
 
@@ -297,97 +392,6 @@ python3 build_unified_index.py
 ```
 
 This regenerates the unified frontend output according to the build logic implemented in the script.
-
----
-
-## Project Purpose
-
-FRA Guardian is a technical prototype exploring how structured claim data, backend APIs, geospatial-style interfaces, and data visualisation can be combined into a single system for reviewing Forest Rights Act-related claims.
-
-The current repository should be considered a prototype or demonstration project.
-
-It should not be represented as:
-
-* An official Government of India system.
-* A production FRA claim-processing platform.
-* A replacement for statutory or legal verification.
-* A direct live connection to official satellite or government databases unless such integrations are independently configured and verified.
-
----
-
-## Current Limitations
-
-The repository currently contains prototype-level application code and sample data.
-
-Before production use, the following areas would require additional work:
-
-* Authentication and role-based access control.
-* Secure credential management.
-* Input validation and security testing.
-* Production database configuration.
-* API documentation.
-* Automated tests.
-* Logging and monitoring.
-* Error handling.
-* Deployment configuration for backend and frontend services.
-* Verification of all external data sources.
-* Legal and administrative validation for real FRA workflows.
-
----
-
-## Development Notes
-
-The repository currently contains multiple frontend-related components:
-
-1. A source frontend under `frontend/`.
-2. A generated standalone `index.html`.
-3. Build scripts such as `build_unified_index.py`.
-4. Additional frontend generation logic in `generate_frontend.py`.
-
-When modifying the project, it is important to identify which frontend artifact is actually used by the deployment.
-
-A recommended development workflow is:
-
-```text
-Modify source code
-      ↓
-Run backend locally
-      ↓
-Run/test frontend locally
-      ↓
-Update sample data if required
-      ↓
-Generate standalone build if required
-      ↓
-Test final deployment artifact
-```
-
----
-
-## Contributing
-
-Contributions should focus on improving the actual application rather than adding unsupported claims.
-
-Useful areas for contribution include:
-
-* Backend API improvements.
-* Database reliability.
-* Frontend usability.
-* Claim-data validation.
-* Automated testing.
-* Documentation.
-* Deployment automation.
-* Security improvements.
-
----
-
-## Disclaimer
-
-This repository is a software prototype created for experimentation and demonstration.
-
-Any real-world implementation involving Forest Rights Act claims, land records, satellite imagery, government data, or tribal land rights must be independently validated with authorised data sources and the appropriate legal and administrative authorities.
-
-The application should not be used as the sole basis for approving, rejecting, or modifying an official claim.
 
 ---
 
