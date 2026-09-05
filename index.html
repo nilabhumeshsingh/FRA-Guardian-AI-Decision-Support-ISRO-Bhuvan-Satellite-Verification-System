@@ -33997,7 +33997,7 @@
     // ── Initial Setup on Page Load ──
     window.addEventListener('DOMContentLoaded', async () => {
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/claims');
+        const res = await fetch('/api/claims');
         if (res.ok) {
           const data = await res.json();
           if (data.claims && data.claims.length > 0) {
@@ -35028,7 +35028,7 @@
       const lng = scanCoords[1];
 
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/analyze-area', {
+        const res = await fetch('/api/analyze-area', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ lat: lat, lng: lng, area_ha: 1.0, radius_meters: 56.42 })
@@ -35091,7 +35091,7 @@
       };
 
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/claims', {
+        const res = await fetch('/api/claims', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
