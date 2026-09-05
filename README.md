@@ -571,3 +571,4 @@ fra-guardian/
 
 *Built as a technology pilot to demonstrate how AI, satellite imagery, and open data can accelerate justice for India's tribal communities under the Forest Rights Act, 2006.*
 # FRA-Guardian-AI-Decision-Support-ISRO-Bhuvan-Satellite-Verification-System
+# FRA-Guardian-AI-Decision-Support-ISRO-Bhuvan-Satellite-Verification-System
