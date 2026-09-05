@@ -1,207 +1,398 @@
-# 🌿 FRA Guardian — AI Decision Support & ISRO Bhuvan Satellite Verification System
+# FRA Guardian
 
-### *Forest Rights Act (FRA 2006) — Madhya Pradesh Pilot*
+A full-stack prototype for managing and reviewing Forest Rights Act (FRA) land claims. The project combines a FastAPI backend, MongoDB integration, structured claim models, sample claim data, and a browser-based frontend.
 
-> **An end-to-end AI-powered platform that accelerates tribal land rights verification using ISRO Bhuvan satellite imagery, real-time data analytics, and multi-agent AI deliberation.**
-
----
-
-## 🎯 Executive Summary
-
-India's **Forest Rights Act (FRA), 2006** aims to grant land titles to forest-dwelling communities. However, over **1.9 million claims remain pending nationwide** due to slow paper-based workflows, hand-drawn maps, and potential inconsistencies in manual decision-making.
-
-**FRA Guardian** bridges satellite science and legal workflows. It converts ISRO Bhuvan imagery, 6-year multi-temporal NDVI trajectory data, and crop phenology into **1-Hectare GIS-standard dossiers**, helping reduce weeks of manual review into a **2-minute automated audit**.
+> This README describes the implementation available in the repository and avoids claims about functionality that cannot be confirmed from the project structure and code.
 
 ---
 
-## 🏛️ Key Value Propositions
+## Overview
 
-* **Speed & Scale:** Collapses manual field cross-referencing into a single dashboard screen for rapid SDLC/DLRC review.
-* **Data-Driven Accountability:** Flags officer bias by benchmarking individual rejection rates against district averages and auto-detecting satellite vs. officer decision mismatches (`SAT_MISMATCH`).
-* **Statutory AI Alignment:** Evaluates claims within the legal framework of FRA 2006, including Section 3(1)(a), Section 4(3), and Rule 12A.
-* **Offline Resilience:** Automatically switches to an embedded dataset when rural district connectivity drops.
+FRA Guardian is a prototype decision-support application designed around Forest Rights Act claim data.
+
+The repository contains:
+
+* A Python backend built with FastAPI.
+* MongoDB connectivity for storing and retrieving claim records.
+* Pydantic models for structured claim data.
+* Sample FRA claim data.
+* A frontend application with its own source structure.
+* A generated standalone `index.html`.
+* A Python script used to build or consolidate frontend assets and data.
+* Deployment configuration through `vercel.json`.
+
+The project is structured as an application prototype rather than a production-ready government system.
 
 ---
 
-## 🔧 Architecture & Workflow
+## Repository Structure
 
 ```text
-┌─────────────────────────────────────────────────────────────────────┐
-│                       FRA GUARDIAN SYSTEM                           │
-│                                                                     │
-│  ┌──────────────┐    ┌──────────────────┐    ┌──────────────────┐  │
-│  │   MongoDB    │    │  FastAPI Backend │    │   Python Build   │  │
-│  │    Atlas     │◄──►│   (Port 8000)    │    │      Script      │  │
-│  │ fra_guardian │    │    main.py       │    │  build_unified_  │  │
-│  │   .claims    │    │   /api/claims    │    │   index.py       │  │
-│  └──────────────┘    └──────────────────┘    └────────┬─────────┘  │
-│                                                       │             │
-│                                              ┌────────▼──────────┐ │
-│                                              │    index.html     │ │
-│                                              │  (Single-File)    │ │
-│                                              └────────┬──────────┘ │
-│                                                       │             │
-│                              ┌────────────────────────▼──────────┐ │
-│                              │       HTTP Server (Port 8088)     │ │
-│                              └───────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────────────────┘
+FRA-Guardian-AI-Decision-Support-ISRO-Bhuvan-Satellite-Verification-System/
+│
+├── api/
+│
+├── backend/
+│   ├── data/
+│   ├── database.py
+│   ├── main.py
+│   ├── models.py
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   ├── index.html
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── fra-guardian/
+│
+├── build_unified_index.py
+├── generate_frontend.py
+├── index.html
+├── sample_fra_claims.json
+├── requirements.txt
+├── vercel.json
+│
+├── farmland.jpg
+└── forest.jpg
 ```
 
-### Workflow
+---
 
-1. **Seeding:** Stores 220 Madhya Pradesh pilot claims in MongoDB Atlas using `sample_fra_claims.json`.
-2. **Backend API:** FastAPI runs on port `8000`, serves live MongoDB queries, and performs 1-Hectare spatial area analysis.
-3. **Frontend Build:** `build_unified_index.py` bundles the UI and fallback data into a zero-dependency, self-contained `index.html` (~897 KB).
-4. **Execution Mode:** The application fetches live MongoDB data when available and automatically uses the embedded dataset when offline.
+## Backend
+
+The backend is implemented in Python and organised around three main components:
+
+### `backend/main.py`
+
+The main FastAPI application.
+
+This file is responsible for exposing the backend application and handling API functionality.
+
+### `backend/database.py`
+
+Handles database-related functionality and MongoDB integration.
+
+The project uses MongoDB as the persistence layer for claim records when a database connection is configured.
+
+### `backend/models.py`
+
+Contains structured data models used by the application.
+
+Using Pydantic models allows incoming and outgoing claim data to follow a predictable structure.
+
+### `backend/data/`
+
+Contains data used by the backend.
 
 ---
 
-## 📱 Platform Features
+## Frontend
 
-### 1. 📊 Executive Dashboard
+The repository contains a separate frontend project under:
 
-* **Live KPI Counters:** Total claims, approval rates, anomaly alerts, and land distribution.
-* **Anomaly Engine:** Automatically surfaces claims where satellite observations contradict officer rejection notes.
-* **Global Filter & Search:** Search across claimant names, PVTG tribes, districts, and seasonal categories such as *Kharif*, *Rabi*, and *Zaid*.
-* **Automated AI Briefs:** Generates DLRC Memorandums, Spatial Cross-Examinations, and Officer Bias Audits.
+```text
+frontend/
+```
 
----
+The frontend includes:
 
-### 2. 🛰️ ISRO Bhuvan GIS Verification
+```text
+frontend/
+├── public/
+├── src/
+├── index.html
+├── package.json
+└── tsconfig.json
+```
 
-* **220 Interactive Coordinates:** Claim locations categorized as Farmland, Forest, Verified, and Disputed.
+This indicates that the source frontend and the generated standalone frontend are maintained separately.
 
-* **Dynamic 1-Hectare Seasonal Overlays:** Visuals change according to the selected month and year.
-
-  * **Kharif (Monsoon):** Active crop canopy.
-  * **Rabi (Winter):** Harvest canopy.
-  * **Zaid (Summer):** Dry, ploughed fallow soil.
-
-* **NDVI Time-Series Canvas:** Visualizes vegetation index patterns from 2019–2024 to support land-use and cultivation analysis.
-
----
-
-### 3. 🤖 Multi-Agent SDLC Hearing Debate
-
-Simulates a Sub-Divisional Level Committee hearing using four specialized AI personas that debate the validity of each claim.
-
-* **Legal Counsel — Arjun Mehta:** Cites FRA 2006 sections and Rule 12A.
-* **Range Forest Officer — Priya Sharma:** Scrutinizes compartment boundaries and potential forest encroachment.
-* **Tribal Welfare Officer — Sunita Patel:** Validates Gram Sabha resolutions and historical community evidence.
-* **SDM / SDLC Chair — Vikram Rathore:** Evaluates all arguments and renders a final consensus ruling.
+The root-level `index.html` appears to be a generated or consolidated frontend artifact intended for direct deployment or standalone execution.
 
 ---
 
-### 4. 📡 Field Scan Request
+## Data
 
-Allows field officers to:
+The repository includes:
 
-* Enter custom GPS coordinates.
-* Trigger the spatial boundary analysis algorithm.
-* Evaluate forest reserve proximity.
-* Generate preliminary land-use analysis.
-* Store new records in MongoDB Atlas.
+```text
+sample_fra_claims.json
+```
+
+This file provides sample Forest Rights Act claim data used for demonstration, testing, or application seeding.
+
+The data is intended to support the application's claim-management and review workflow.
+
+The repository also includes image assets:
+
+```text
+farmland.jpg
+forest.jpg
+```
+
+These assets are used by the application to visually represent land categories.
 
 ---
 
-## 🛠️ Technology Stack
+## Unified Frontend Build
 
-### Frontend
+The project includes:
 
-* Vanilla JavaScript (ES6+)
-* HTML5
-* CSS3
-* Leaflet.js
-* HTML5 Canvas API
+```text
+build_unified_index.py
+```
 
-> **Zero React, Node.js, or npm dependencies.**
+This script is responsible for generating or consolidating the frontend into a unified output.
+
+The generated output allows the frontend to be distributed as a standalone HTML application.
+
+This approach is useful for demonstrations and deployments where serving a compiled frontend separately is unnecessary.
+
+---
+
+## Technology Stack
 
 ### Backend
 
-* Python 3.10+
+* Python
 * FastAPI
 * Uvicorn
-* PyMongo
+* MongoDB / PyMongo
 * Pydantic
 
-### Database
+### Frontend
 
-* MongoDB Atlas
-* Embedded local fallback dataset
+The frontend is maintained as a separate project with:
+
+* HTML
+* JavaScript / TypeScript tooling
+* A package-based frontend configuration
+
+### Data and Deployment
+
+* JSON-based sample data
+* MongoDB for persistent storage
+* Vercel deployment configuration
 
 ---
 
-## 💻 Quick Start
+## Installation
 
-### 1. Backend Setup
-
-```bash
-cd fra-guardian/backend
-pip install fastapi uvicorn pymongo python-dotenv httpx
-python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
-```
-
-### 2. Build and Launch Frontend
+### 1. Clone the repository
 
 ```bash
-cd fra-guardian
-python3 build_unified_index.py
-python3 -m http.server 8088
+git clone https://github.com/nilabhumeshsingh/FRA-Guardian-AI-Decision-Support-ISRO-Bhuvan-Satellite-Verification-System.git
 ```
 
-Access the application at:
+```bash
+cd FRA-Guardian-AI-Decision-Support-ISRO-Bhuvan-Satellite-Verification-System
+```
 
-`http://localhost:8088/index.html`
+---
 
-### Optional MongoDB Configuration
+## Backend Setup
 
-Configure MongoDB connectivity in:
+Move into the backend directory:
+
+```bash
+cd backend
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the FastAPI application:
+
+```bash
+uvicorn main:app --reload
+```
+
+The API should then be available locally through the configured Uvicorn server.
+
+---
+
+## MongoDB Configuration
+
+The backend contains database integration for MongoDB.
+
+Configure the required connection settings according to the environment variables and database configuration expected by:
 
 ```text
-backend/.env
+backend/database.py
 ```
 
-Using:
+Do not commit database credentials or connection strings to the repository.
+
+A typical local configuration can use environment variables such as:
 
 ```env
 MONGODB_URI=your_mongodb_connection_string
 DATABASE_NAME=fra_guardian
 ```
 
----
-
-## 📊 Dataset Overview — Madhya Pradesh Pilot
-
-| Metric                 | Details                                                                          |
-| ---------------------- | -------------------------------------------------------------------------------- |
-| **Total Pilot Claims** | 220 claims across 19 districts and 32 forest reserves                            |
-| **Status Split**       | Approved: 61 (27.7%) · Rejected: 127 (57.7%) · Pending: 32 (14.5%)               |
-| **Land Distribution**  | Farmland: 135 (61.4%) · Forest: 85 (38.6%)                                       |
-| **Flagged Anomalies**  | 159 claims (72.3%)                                                               |
-| **Tribes Covered**     | Baiga (PVTG), Bharia (PVTG), Sahariya (PVTG), Gond, Bhil, Korku, Kol, and others |
+The exact configuration should match the database implementation in the project.
 
 ---
 
-## ⚠️ Known Limitations & Future Roadmap
+## Frontend Setup
 
-### 🛰️ Live Bhuvan API Access
+Move into the frontend directory:
 
-Current NDVI curves use published NRSC phenological models because public access to raw pixel-level satellite APIs is restricted. Direct OGC/WMS integration is planned for a future phase.
+```bash
+cd frontend
+```
 
-### 🤖 LLM Engine Upgrade
+Install the frontend dependencies:
 
-Multi-agent debates currently use structured evidentiary scripts. Future releases may integrate live Gemini, Groq, or other LLM pipelines.
+```bash
+npm install
+```
 
-### 📱 Mobile Field Application
-
-A lightweight mobile application is planned with:
-
-* Offline GPS capability.
-* Field data collection.
-* Document OCR.
-* Mobile claim submission.
-* Preliminary AI-based assessments.
+Use the scripts defined in `package.json` to run or build the frontend.
 
 ---
 
-> *Built to demonstrate how spatial data, transparent AI reasoning, and open legal frameworks can accelerate justice under the Forest Rights Act, 2006.*
+## Standalone Frontend
+
+The repository also includes a root-level standalone:
+
+```text
+index.html
+```
+
+For local testing, it can be served with a simple HTTP server.
+
+For example:
+
+```bash
+python3 -m http.server 8088
+```
+
+Then open:
+
+```text
+http://localhost:8088
+```
+
+---
+
+## Rebuilding the Unified Frontend
+
+The repository includes:
+
+```bash
+build_unified_index.py
+```
+
+Run the script from the project root:
+
+```bash
+python3 build_unified_index.py
+```
+
+This regenerates the unified frontend output according to the build logic implemented in the script.
+
+---
+
+## Project Purpose
+
+FRA Guardian is a technical prototype exploring how structured claim data, backend APIs, geospatial-style interfaces, and data visualisation can be combined into a single system for reviewing Forest Rights Act-related claims.
+
+The current repository should be considered a prototype or demonstration project.
+
+It should not be represented as:
+
+* An official Government of India system.
+* A production FRA claim-processing platform.
+* A replacement for statutory or legal verification.
+* A direct live connection to official satellite or government databases unless such integrations are independently configured and verified.
+
+---
+
+## Current Limitations
+
+The repository currently contains prototype-level application code and sample data.
+
+Before production use, the following areas would require additional work:
+
+* Authentication and role-based access control.
+* Secure credential management.
+* Input validation and security testing.
+* Production database configuration.
+* API documentation.
+* Automated tests.
+* Logging and monitoring.
+* Error handling.
+* Deployment configuration for backend and frontend services.
+* Verification of all external data sources.
+* Legal and administrative validation for real FRA workflows.
+
+---
+
+## Development Notes
+
+The repository currently contains multiple frontend-related components:
+
+1. A source frontend under `frontend/`.
+2. A generated standalone `index.html`.
+3. Build scripts such as `build_unified_index.py`.
+4. Additional frontend generation logic in `generate_frontend.py`.
+
+When modifying the project, it is important to identify which frontend artifact is actually used by the deployment.
+
+A recommended development workflow is:
+
+```text
+Modify source code
+      ↓
+Run backend locally
+      ↓
+Run/test frontend locally
+      ↓
+Update sample data if required
+      ↓
+Generate standalone build if required
+      ↓
+Test final deployment artifact
+```
+
+---
+
+## Contributing
+
+Contributions should focus on improving the actual application rather than adding unsupported claims.
+
+Useful areas for contribution include:
+
+* Backend API improvements.
+* Database reliability.
+* Frontend usability.
+* Claim-data validation.
+* Automated testing.
+* Documentation.
+* Deployment automation.
+* Security improvements.
+
+---
+
+## Disclaimer
+
+This repository is a software prototype created for experimentation and demonstration.
+
+Any real-world implementation involving Forest Rights Act claims, land records, satellite imagery, government data, or tribal land rights must be independently validated with authorised data sources and the appropriate legal and administrative authorities.
+
+The application should not be used as the sole basis for approving, rejecting, or modifying an official claim.
+
+---
+
+## Repository
+
+GitHub:
+
+https://github.com/nilabhumeshsingh/FRA-Guardian-AI-Decision-Support-ISRO-Bhuvan-Satellite-Verification-System
