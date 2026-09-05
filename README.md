@@ -1,4 +1,4 @@
-# FRA Guardian
+# Vanrakshak
 
 A full-stack prototype for managing and reviewing Forest Rights Act (FRA) land claims. The project combines a FastAPI backend, MongoDB integration, structured claim models, sample claim data, and a browser-based frontend.
 
